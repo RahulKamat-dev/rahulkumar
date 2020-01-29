@@ -4,15 +4,15 @@
 #include <ctype.h>
 #include <string.h>
 
-int main (int argc, char** argv)
+int main(int argc, char **argv)
 {
-    if(argc != 2)
+    if (argc != 2)
     {
         printf("Usage: ./caesar k\n");
         return 1;
     }
     int k = atoi(argv[1]);
-    if (k<0)
+    if (k < 0)
     {
         printf("key must be positive\n");
         return 1;
@@ -23,17 +23,17 @@ int main (int argc, char** argv)
     {
         if (islower(plaintext[i]))
         {
-            printf("%c", (plaintext[i]-'a'+k)%26+'a');
+            printf("%c", (plaintext[i] - 'a' + k) % 26 + 'a');
         }
         else if (isupper(plaintext[i]))
         {
-            printf("%c", (plaintext[i]-'A'+k)%26+'A');
+            printf("%c", (plaintext[i] - 'A' + k) % 26 + 'A');
         }
         else
         {
             printf("%c", plaintext[i]);
         }
     }
-     printf("\n");
+    printf("\n");
 
 }
