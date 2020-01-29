@@ -13,15 +13,15 @@ int main(void)
     {
         for (int j = 0; j < 2 * n + 2; j++)
         {
-            if (i +j < n - 1 || j == n || j == n + 1)
+            if (i + j < n - 1 || j == n || j == n + 1)
             {
                 printf(" ");
             }
-            else if(i+j>=n-1 && j-i<=n+2)
+            else if (i + j >= n - 1 && j - i <= n + 2)
             {
                 printf("#");
             }
-         }
+        }
         printf("\n");
     }
 
