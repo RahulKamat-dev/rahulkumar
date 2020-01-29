@@ -4,7 +4,7 @@
 
 int main(void)
 {
-   float dollars;
+    float dollars;
     do
     {
         dollars = get_float("Change owed: ");
