@@ -25,7 +25,7 @@ int main (int argc, char** argv)
         {
             printf("%c", (plaintext[i]-'a'+k)%26+'a');
         }
-        else if (isupper(plaintext[i]-'a'+k)%26+'a')
+        else if (isupper(plaintext[i]))
         {
             printf("%c", (plaintext[i]-'A'+k)%26+'A');
         }
