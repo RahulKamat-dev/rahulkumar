@@ -10,7 +10,7 @@ int main(void)
     }while(n<1 || n>8);
     for(int i = 0;i < n; i++)
     {
-        for(int j=0;j<2*n+2;j++)
+        for(int j = 0;j < 2*n + 2; j++)
         {
             if(i+j<n-1 || j==n || j==n+1)
                printf(" ");
@@ -18,6 +18,6 @@ int main(void)
                 printf("#");
          }
         printf("\n");
-     }
+    }
 
 }
