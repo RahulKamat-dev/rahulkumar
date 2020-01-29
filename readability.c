@@ -2,56 +2,57 @@
 #include <cs50.h>
 #include <ctype.h>
 #include <string.h>
-
-int letter;
-int word;
-int sentence;
-
-
+#include <stdlib.h>
+#include <math.h>
 int main(void)
 {
-
-    string alp = get_string("What's the article?: ");
-
-    int n = strlen(alp);
-
-    if (isalnum(alp[0]))
-    {
-        word = 1;
-    }
-
-    for (int i = 0; i < n;  i++)
-    {
-        if (isalnum(alp[i]))
-        {
-            letter++;
-        }
-
-        if (i < n - 1 && isspace(alp[i]) && isalnum(alp[i + 1]))
-        {
-            word++;
-        }
-
-        if (i > 0 && (alp[i] == '!' || alp[i] == '?' || alp[i] == '.') && isalnum(alp[i - 1]))
-        {
-            sentence++;
-        }
-
-    }
-    int grade = 0.0588 * (100 * letter / word) - 0.296 * (100 * sentence / word) - 15.8;
-
-    printf("Letters: %i\n Words: %i\n Sentences: %i\n", letter, word, sentence);
-
-    if (grade <= 1)
-    {
-        printf("Before Grade 1\n");
-    }
-    else if (grade < 16)
-    {
-        printf("Grade %i\n", grade);
-    }
-    else
-    {
-        printf("Grade 16+\n");
-    }
+   string str = get_string("Text:");
+   int n = strlen(str);
+   int i, j, k;
+   int letter = 0;
+   int word = 0;
+   int temp = 0, a = 0;
+   int sentence = 0;
+   for (i = 0; i < n ; i++)
+   {
+       int x = str[i];
+       if ((x >= 65 && x <= 90) || (x >= 97 && x <= 122))
+       {
+           letter++;
+       }
+       if (x == 32)
+       {
+           word++;
+       }
+       if ((x == 46) || (x == 33) || (x == 63))
+       {
+           sentence = sentence + 1;
+       }
+   }
+   int z = str[n - 1];
+   if ((z >= 65 && z <= 90) || (z >= 97 && z <= 122) || (z >= 32 && z <= 34) || (z == 44) || (z == 46) || (z == 58) || (z == 59) || (z == 63))
+   {
+       a = word + 1;
+   }
+   float L = (letter * 100) / a;
+   float S = (sentence * 100) / a;
+   float index = 0.0588 * L - 0.296 * S - 15.8;
+   int index1 = 0.0588 * L - 0.296 * S - 15.8;
+   float temp1 = index - index1;
+   if (temp1 >= 0.55)
+   {
+       index1 = round(index);
+   }
+   if (index1 < 1)
+   {
+       printf("Before Grade 1\n");
+   }
+   else if (index1 >= 16)
+   {
+       printf("Grade 16+\n");
+   }
+   else
+   {
+       printf("Grade %d\n", index1);
+   }
 }
