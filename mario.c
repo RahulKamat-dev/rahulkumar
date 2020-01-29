@@ -7,17 +7,17 @@ int main(void)
     do
     {
         n = get_int("Height : " );
-    }while(n<0 || n>23);
+    }while(n<1 || n>8);
     for(int i=0;i<n;i++)
     {
-        for(int j=0;j<n-1-i;j++)
+        for(int j=0;j<n;j++)
         {
-            printf(" ");
+            if(i+j<n-1)
+               printf(" ");
+            else
+                printf("#");
         }
-        for(int j=0;j<i+1;j++)
-        {
-            printf("#");
-        }
+        
          printf("\n");
      }
 
