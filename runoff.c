@@ -232,38 +232,38 @@ bool is_tie(int min)
 {
     int sum = 0;
     int count = 0;
-int new[candidate_count];
-for (int i = 0; i < candidate_count && candidates[i].eliminated == false ; i++)
-{
-    new[i] = candidates[i].votes;
-    count++;
-}
-for (int i = 0; i < count ; i++)
-{
-    sum = sum + new[i];
-}
-int ans = (sum / count);
-if (ans == new[0])
-{
-    return (true);
-}
-else
-{
-    return (false);
-}
+    int new[candidate_count];
+    for (int i = 0; i < candidate_count && candidates[i].eliminated == false ; i++)
+    {
+        new[i] = candidates[i].votes;
+        count++;
+    }
+    for (int i = 0; i < count ; i++)
+    {
+        sum = sum + new[i];
+    }
+    int ans = (sum / count);
+    if (ans == new[0])
+    {
+        return (true);
+    }
+    else
+    {
+        return (false);
+    }
 }
 
 // Eliminate the candidate (or candidiates) in last place
 void eliminate(int min)
 {
-  for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
 
-  {
-      if (candidates[i].votes == min && candidates[i].eliminated == false)
+    {
+        if (candidates[i].votes == min && candidates[i].eliminated == false)
 
-      {
-          candidates[i].eliminated = true;
-      }
-  }
+        {
+            candidates[i].eliminated = true;
+        }
+    }
 
 }
